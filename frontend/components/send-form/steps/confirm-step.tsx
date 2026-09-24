@@ -119,6 +119,7 @@ export function ConfirmStep({ state, onBack }: ConfirmStepProps) {
       setClaimUrl(account.claimUrl);
       setCreatedAccountId(account.accountId);
       setSubmitPhase('success');
+      analytics.paymentDetailsViewed({ claimId: account.accountId, claimStatus: 'unclaimed' });
     } catch (err) {
       const info = classifyError(err);
       setErrorInfo(info);
